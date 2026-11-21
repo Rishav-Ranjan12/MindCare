@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Analytics — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail" id="rail" data-active="mood"></aside>
+  <main class="main">
+    <header class="page-head">
+      <span class="eyebrow">Mood analytics &amp; tracking</span>
+      <h1 class="display">Understand your <em>patterns.</em></h1>
+      <p class="lead">Understand your emotional patterns with AI-powered insights.</p>
+    </header>
+
+    <!-- logger -->
+    <section class="card logger" data-reveal>
+      <div class="logger-top">
+        <h2>How are you feeling <em>right now?</em></h2>
+        <span class="tag"><i data-lucide="lock"></i>Saved on this device</span>
+      </div>
+      <div class="faces" id="faces" role="radiogroup" aria-label="Mood"></div>
+
+      <div class="mood-details" id="mood-details">
+        <div class="support-banner" id="support-banner">
+          <div><b>That sounds really hard.</b><span>You don't have to carry it alone — people are available right now.</span></div>
+          <div class="row wrap"><button class="btn btn-sm btn-danger" data-crisis><i data-lucide="life-buoy"></i>Get support now</button><a class="btn btn-sm btn-ghost" href="chatbot.html">Talk to AI</a></div>
+        </div>
+
+        <div>
+          <label class="lbl" for="mood-intensity"><i data-lucide="sliders-horizontal"></i>Intensity level</label>
+          <div class="intensity"><input type="range" id="mood-intensity" min="1" max="10" value="5"><output><span id="intensity-value">5</span><small>/10</small></output></div>
+        </div>
+
+        <div>
+          <label class="lbl"><i data-lucide="lightbulb"></i>What might have triggered this mood?</label>
+          <div class="chips" id="triggers">
+            <button type="button" class="chip" aria-pressed="false" data-trigger="work"><i data-lucide="briefcase"></i>Work</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="relationships"><i data-lucide="heart"></i>Relationships</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="health"><i data-lucide="heart-pulse"></i>Health</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="finances"><i data-lucide="wallet"></i>Finances</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="family"><i data-lucide="house"></i>Family</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="weather"><i data-lucide="cloud-sun"></i>Weather</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="sleep"><i data-lucide="bed"></i>Sleep</button>
+            <button type="button" class="chip" aria-pressed="false" data-trigger="other"><i data-lucide="ellipsis"></i>Other</button>
+          </div>
+        </div>
+
+        <div>
+          <label class="lbl" for="mood-notes"><i data-lucide="pen-line"></i>Share more about your mood <span class="muted" style="font-weight:500">(optional)</span></label>
+          <textarea class="field" id="mood-notes" maxlength="500" placeholder="A sentence is plenty…"></textarea>
+        </div>
+
+        <div class="ai-sugg" id="ai-suggestions" style="display:none">
+          <div class="ico"><i data-lucide="sparkles"></i></div>
+          <div><h4>AI recommendations</h4><p id="suggestions-content"></p><a class="go" id="sugg-link" href="exercises.html">Try it now <i data-lucide="arrow-right"></i></a></div>
+        </div>
+
+        <button class="btn btn-clay btn-block" id="log-btn"><i data-lucide="plus-circle"></i>Log mood &amp; get AI insights</button>
+      </div>
+    </section>
+
+    <!-- analytics -->
+    <section class="bento">
+      <div class="card s8" data-reveal>
+        <div class="card-h"><h3>30-day mood trend</h3><span class="tag" id="trend-tag"></span></div>
+        <div class="chart-box tall"><canvas id="mood-trend-chart"></canvas></div>
+      </div>
+      <div class="card s4" data-reveal style="--d:1">
+        <div class="card-h"><h3>Mood distribution</h3></div>
+        <div class="chart-box tall"><canvas id="mood-distribution-chart"></canvas></div>
+      </div>
+      <div class="card s6" data-reveal>
+        <div class="card-h"><h3>Weekly pattern analysis</h3></div>
+        <div class="chart-box"><canvas id="weekly-pattern-chart"></canvas></div>
+      </div>
+      <div class="card s6" data-reveal style="--d:1">
+        <div class="card-h"><h3>AI mood analysis</h3><span class="tag clay"><i data-lucide="brain"></i>Auto</span></div>
+        <div class="analysis" id="ai-mood-analysis">
+          <div class="an-row"><span>Mood stability</span><b id="mood-stability">Calculating…</b></div>
+          <div class="an-row"><span>Most challenging day</span><b id="challenging-day">Analyzing…</b></div>
+          <div class="an-row"><span>Primary triggers</span><b id="primary-triggers">Learning…</b></div>
+          <div class="an-row"><span>Improvement trend</span><b id="improvement-trend">Processing…</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- history -->
+    <section class="sec" style="margin-top:50px">
+      <div class="sec-h"><h2>Recent mood <em>entries</em></h2><p id="sample-note-m" class="muted"></p></div>
+      <div class="entries" id="mood-entries-list"></div>
+      <div class="row" style="justify-content:center;margin-top:26px"><button class="btn btn-ghost" id="load-more-btn">Load more entries</button></div>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/mood-tracker.js"></script>
+</body>
+</html>

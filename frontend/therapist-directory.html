@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Therapist — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail" id="rail" data-active="therapists"></aside>
+  <main class="main">
+    <header class="page-head">
+      <span class="eyebrow">Licensed &amp; verified professionals</span>
+      <h1 class="display">Find your <em>perfect therapist.</em></h1>
+      <p class="lead">Connect with qualified mental health professionals who understand your needs. All therapists are licensed and verified.</p>
+    </header>
+
+    <div class="alert-strip" data-reveal>
+      <div class="ic"><i data-lucide="triangle-alert"></i></div>
+      <div class="grow"><b>In crisis? Get immediate help</b><p>Call <a href="tel:988">988</a> Suicide &amp; Crisis Lifeline · Text <b style="display:inline">HOME</b> to <a href="sms:741741">741741</a> · Call <a href="tel:911">911</a> for emergencies · India: <a href="tel:14416">14416</a></p></div>
+      <button class="btn btn-clay btn-sm" data-crisis>All support options</button>
+    </div>
+
+    <div class="filters" data-reveal>
+      <div class="search-wrap"><i data-lucide="search"></i><input type="search" class="field" placeholder="Search by name or specialty…" id="search-input" aria-label="Search therapists"></div>
+      <select class="field" id="specialty-filter" aria-label="Specialty">
+        <option value="">All specialties</option>
+        <option>Clinical Psychology</option><option>Psychiatry</option><option>Marriage &amp; Family Therapy</option><option>Addiction Counseling</option><option>Trauma Therapy</option><option>Child Psychology</option><option>Geriatric Psychology</option>
+      </select>
+      <select class="field" id="location-filter" aria-label="Location">
+        <option value="">All locations</option><option value="Downtown">Downtown</option><option value="Midtown">Midtown</option><option value="Uptown">Uptown</option><option value="Online">Online only</option>
+      </select>
+    </div>
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+
+    <div class="t-grid" id="therapist-grid"></div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/therapists.js"></script>
+</body>
+</html>

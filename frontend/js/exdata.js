@@ -1,0 +1,105 @@
+/* Exercise catalogue shared by the dashboard and the exercise player */
+window.MC_EXERCISES = [
+  /* ---------------- breathing: cycle of phases repeated ---------------- */
+  { id: 'box-breathing', name: 'Box Breathing', type: 'breathing', difficulty: 'Beginner', minutes: 4, icon: 'square',
+    desc: 'Four equal sides — in, hold, out, hold. Used by pilots and surgeons to steady the nervous system.', best: 'stress, focus',
+    cycle: [['Breathe in', 4, 'in'], ['Hold', 4, 'hold'], ['Breathe out', 4, 'out'], ['Hold', 4, 'hold']],
+    tip: 'Trace a square with your eyes: up, across, down, back.' },
+  { id: '478', name: '4-7-8 Relaxing Breath', type: 'breathing', difficulty: 'Beginner', minutes: 4, icon: 'moon',
+    desc: 'A long, slow exhale that tells your body it is safe to sleep. Great before bed or after a rough day.', best: 'sleep, anxiety',
+    cycle: [['Breathe in', 4, 'in'], ['Hold', 7, 'hold'], ['Breathe out', 8, 'out']],
+    tip: 'Rest your tongue behind your top teeth and exhale with a soft whoosh.' },
+  { id: 'calm-belly', name: 'Calm Belly Breathing', type: 'breathing', difficulty: 'Beginner', minutes: 5, icon: 'wind',
+    desc: 'Deep diaphragmatic breaths that slow your heart rate and soften a tight chest.', best: 'anxiety, panic',
+    cycle: [['Breathe in', 4, 'in'], ['Breathe out', 6, 'out']],
+    tip: 'One hand on your belly. Let it rise like a balloon on the way in.' },
+  { id: 'coherent', name: 'Coherent Breathing', type: 'breathing', difficulty: 'Intermediate', minutes: 6, icon: 'audio-waveform',
+    desc: 'Five-and-a-half breaths a minute — the rhythm linked to the best heart-rate variability.', best: 'resilience, mood',
+    cycle: [['Breathe in', 5.5, 'in'], ['Breathe out', 5.5, 'out']],
+    tip: 'Keep it smooth — no gap between the in-breath and the out-breath.' },
+
+  /* ---------------- physical: sequence of poses ---------------- */
+  { id: 'neck-release', name: 'Neck & Shoulder Release', type: 'physical', difficulty: 'Beginner', minutes: 4, icon: 'person-standing',
+    desc: 'Undo the hunch. Gentle stretches for the places stress hides.', best: 'tension, desk work',
+    steps: [
+      ['Roll your shoulders', 'Draw slow backward circles with both shoulders. Let them drop away from your ears.', 40, 'rotate-cw'],
+      ['Right ear to shoulder', 'Tilt your head, keep the left shoulder heavy. Breathe into the stretch.', 40, 'move-horizontal'],
+      ['Left ear to shoulder', 'Switch sides slowly. No bouncing — just weight and breath.', 40, 'move-horizontal'],
+      ['Chin to chest', 'Let the weight of your head lengthen the back of your neck.', 35, 'arrow-down'],
+      ['Eagle arms', 'Cross one elbow over the other, lift the elbows slightly, breathe into your upper back.', 45, 'hand-metal'],
+      ['Shake it out', 'Shake your hands, arms, shoulders. Let go of anything you are still holding.', 40, 'sparkles']] },
+  { id: 'sun-flow', name: 'Morning Sun Flow', type: 'physical', difficulty: 'Intermediate', minutes: 6, icon: 'sun',
+    desc: 'A short yoga sequence that wakes the body and lifts the mood.', best: 'low energy, mornings',
+    steps: [
+      ['Mountain pose', 'Stand tall, feet hip-width, arms relaxed. Feel the floor.', 40, 'person-standing'],
+      ['Reach up', 'Inhale, sweep your arms overhead and lengthen through the spine.', 40, 'arrow-up'],
+      ['Forward fold', 'Exhale, hinge at the hips and let your head hang. Bend your knees freely.', 50, 'arrow-down-to-line'],
+      ['Half lift', 'Inhale, flat back, gaze forward. Exhale, fold again.', 40, 'move-up'],
+      ['Low lunge — right', 'Step the right foot back, sink the hips, lift your chest.', 50, 'footprints'],
+      ['Low lunge — left', 'Switch sides, steady breathing, stay soft in the jaw.', 50, 'footprints'],
+      ['Child\'s pose', 'Knees wide, hips back, forehead down. Rest completely.', 60, 'flower-2'],
+      ['Stand and settle', 'Come up slowly. Hand on heart. Notice what has changed.', 30, 'heart']] },
+  { id: 'desk-reset', name: 'Desk Reset', type: 'physical', difficulty: 'Beginner', minutes: 3, icon: 'armchair',
+    desc: 'Three minutes, no mat, no changing clothes. Move the stuck energy.', best: 'restlessness, overwhelm',
+    steps: [
+      ['Stand and stretch tall', 'Interlace your fingers, press the palms to the sky and breathe.', 35, 'arrow-up'],
+      ['Seated twist — right', 'Hand on the opposite knee, turn gently from the ribs.', 30, 'rotate-cw'],
+      ['Seated twist — left', 'Same on the other side. Keep your hips facing forward.', 30, 'rotate-ccw'],
+      ['Wrist and finger release', 'Make fists, spread the fingers wide, circle the wrists.', 30, 'hand'],
+      ['March in place', 'Lift your knees and swing your arms for a quick energy lift.', 30, 'footprints'],
+      ['Standing forward fold', 'Hang loose for the last stretch. Let it all drain out.', 25, 'arrow-down-to-line']] },
+
+  /* ---------------- mindfulness: guided prompts ---------------- */
+  { id: 'body-scan', name: 'Body Scan', type: 'mindfulness', difficulty: 'Beginner', minutes: 5, icon: 'scan-line',
+    desc: 'Move attention slowly from head to toe and let each area soften.', best: 'sleep, tension',
+    steps: [
+      ['Settle in', 'Close your eyes or soften your gaze. Feel the weight of your body being held.', 30],
+      ['Face and jaw', 'Unclench the jaw. Let your tongue rest. Soften the space between your eyebrows.', 40],
+      ['Neck and shoulders', 'Notice any tightness. You do not have to fix it — just breathe near it.', 45],
+      ['Chest and belly', 'Feel the rise and fall of your breath without changing it.', 45],
+      ['Hips and legs', 'Let the thighs and calves feel heavy and warm.', 45],
+      ['Feet', 'Notice the toes, the soles, the contact with the floor.', 40],
+      ['Whole body', 'Feel yourself as one quiet shape. Rest here.', 55]] },
+  { id: 'grounding-54321', name: '5-4-3-2-1 Grounding', type: 'mindfulness', difficulty: 'Beginner', minutes: 4, icon: 'anchor',
+    desc: 'Use your five senses to come back to the present when thoughts spiral.', best: 'panic, racing thoughts',
+    steps: [
+      ['Five things you can see', 'Look around slowly. Name five things — a colour, a shadow, a texture.', 50],
+      ['Four things you can feel', 'Your feet on the floor, fabric on your skin, the air on your hands.', 50],
+      ['Three things you can hear', 'Near sounds, far sounds, the quiet underneath them.', 45],
+      ['Two things you can smell', 'Or two scents you love. Breathe them in.', 40],
+      ['One thing you can taste', 'Notice your mouth. A sip of water works well here.', 30],
+      ['Arrive', 'Take one slow breath. You are here. You are safe in this moment.', 25]] },
+  { id: 'loving-kindness', name: 'Loving-Kindness', type: 'mindfulness', difficulty: 'Intermediate', minutes: 5, icon: 'heart-handshake',
+    desc: 'Send warm wishes to yourself and others — a practice shown to ease self-criticism.', best: 'low mood, loneliness',
+    steps: [
+      ['Arrive', 'Place a hand on your heart. Feel its warmth and steady beat.', 30],
+      ['To yourself', 'Silently repeat: May I be safe. May I be calm. May I be kind to myself.', 65],
+      ['To someone you love', 'Picture them. May you be safe. May you be happy. May you be well.', 65],
+      ['To someone neutral', 'A neighbour, a cashier. May you be safe. May you be at ease.', 55],
+      ['To everyone', 'Let the wishes widen. May all beings be at peace.', 55],
+      ['Rest', 'Let go of the words. Notice how you feel.', 30]] },
+
+  /* ---------------- cognitive: reflective prompts with writing ---------------- */
+  { id: 'gratitude-three', name: 'Three Good Things', type: 'cognitive', difficulty: 'Beginner', minutes: 4, icon: 'sparkles',
+    desc: 'Write down three things that went right today. Simple, and proven to lift mood.', best: 'low mood, evenings',
+    steps: [
+      ['First good thing', 'What is one thing, big or small, that went well today?', 60, true],
+      ['Second good thing', 'Something someone did, or something you noticed.', 60, true],
+      ['Third good thing', 'Anything at all — a warm drink, a stranger\'s smile.', 60, true],
+      ['Why it mattered', 'Pick one. What does it tell you about what you value?', 60, true]] },
+  { id: 'thought-reframe', name: 'Thought Reframe', type: 'cognitive', difficulty: 'Intermediate', minutes: 6, icon: 'repeat',
+    desc: 'A CBT-style exercise: catch an unhelpful thought, test it, and find a kinder, truer one.', best: 'anxiety, self-criticism',
+    steps: [
+      ['Catch the thought', 'Write the exact thought that is bothering you, as if it were a headline.', 75, true],
+      ['Name the feeling', 'What emotion comes with it, and how strong is it from 0 to 100?', 50, true],
+      ['Look for evidence', 'What facts support the thought? What facts do not?', 90, true],
+      ['Try another view', 'What would you tell a friend who had this thought?', 75, true],
+      ['Rewrite it', 'Write a more balanced version. How strong is the feeling now?', 70, true]] },
+  { id: 'worry-dump', name: 'Worry Dump', type: 'cognitive', difficulty: 'Beginner', minutes: 5, icon: 'notebook-pen',
+    desc: 'Get everything out of your head and onto the page, then choose one small next step.', best: 'overwhelm, bedtime',
+    steps: [
+      ['Empty your head', 'Write every worry, big or tiny, without editing. Just get it out.', 120, true],
+      ['What can you control?', 'Circle the worries you can act on. Write them here.', 90, true],
+      ['One tiny step', 'Pick one thing and write the smallest next step you can take today.', 60, true],
+      ['Let go of the rest', 'Write: "I have done what I can for now." Take a slow breath.', 30, true]] }
+];

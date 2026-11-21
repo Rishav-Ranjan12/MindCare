@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindCare — A gentler place for your mind</title>
+  <meta name="description" content="Breathing, movement, mood analytics, AI support and a directory of licensed therapists — everything for your mental wellness in one calm place.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="home">
+
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="index.html" aria-label="MindCare home"><span id="nav-logo"></span><span>MindCare</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-end">
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+      <a href="dashboard.html" class="btn btn-sm" data-magnetic>Get Started <i data-lucide="arrow-right" class="arrow"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <canvas id="orb" aria-hidden="true"></canvas>
+      <div class="orb-fallback" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <span class="eyebrow hero-in" style="--i:0">AI-assisted mental wellness</span>
+        <h1 class="display hero-title" id="hero-title">Your mental health <em>matters.</em> Let's tend to it, gently.</h1>
+        <p class="lead hero-in" style="--i:6">Personalised breathing and movement, mood tracking that actually learns you, a caring AI to talk to at 3&nbsp;a.m., and licensed humans when you need them.</p>
+        <div class="hero-cta hero-in" style="--i:7">
+          <a href="dashboard.html" class="btn btn-clay" data-magnetic>Start Your Journey <i data-lucide="arrow-right" class="arrow"></i></a>
+          <a href="#features" class="btn btn-ghost" data-magnetic>Explore Features</a>
+        </div>
+        <ul class="hero-proof hero-in" style="--i:8">
+          <li><i data-lucide="shield-check"></i>Private by default</li>
+          <li><i data-lucide="clock"></i>Open 24/7</li>
+          <li><i data-lucide="heart-handshake"></i>Licensed therapist directory</li>
+        </ul>
+      </div>
+
+      <div class="chips-3d" aria-hidden="true">
+        <div class="gchip c1"><i data-lucide="wind"></i><div><b>Breathe in</b><small>4 · 4 · 4 · 4</small></div></div>
+        <div class="gchip c2"><span class="mini-face"></span><div><b>Mood 4 / 5</b><small>trending up</small></div></div>
+        <div class="gchip c3"><i data-lucide="messages-square"></i><div><b>"I'm here."</b><small>MindCare AI</small></div></div>
+      </div>
+
+      <a href="#features" class="scroll-hint" aria-label="Scroll to features"><span></span></a>
+    </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Breathe</span><i></i><span>Notice</span><i></i><span>Move</span><i></i><span>Reflect</span><i></i><span>Rest</span><i></i><span>Reach out</span><i></i>
+        <span>Breathe</span><i></i><span>Notice</span><i></i><span>Move</span><i></i><span>Reflect</span><i></i><span>Rest</span><i></i><span>Reach out</span><i></i>
+      </div>
+    </div>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">What's inside</span>
+          <h2 class="display">Comprehensive mental wellness tools, <em>made calm.</em></h2>
+          <p class="lead">AI-powered features designed to support your mental health journey — one small, kind step at a time.</p>
+        </div>
+
+        <div class="bento">
+          <article class="b b-insight" data-reveal data-tilt="5">
+            <div class="b-text">
+              <span class="tag"><i data-lucide="brain"></i>Machine learning</span>
+              <h3>AI-Powered Insights</h3>
+              <p>Get personalized recommendations based on your mood patterns and behavior analysis using machine learning.</p>
+            </div>
+            <svg class="spark" viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#cf6f45" stop-opacity=".35"/><stop offset="1" stop-color="#cf6f45" stop-opacity="0"/></linearGradient></defs>
+              <path class="area" d="M0 110 C40 100 60 70 100 80 S160 120 200 85 S270 40 310 60 S370 30 400 24 V140 H0Z" fill="url(#sg)"/>
+              <path class="line" d="M0 110 C40 100 60 70 100 80 S160 120 200 85 S270 40 310 60 S370 30 400 24" fill="none" stroke="#cf6f45" stroke-width="3" stroke-linecap="round"/>
+              <circle class="pt" cx="310" cy="60" r="6" fill="#fbf8f1" stroke="#cf6f45" stroke-width="3"/>
+            </svg>
+          </article>
+
+          <article class="b b-breath" data-reveal data-tilt="7" style="--d:1">
+            <div class="ring-stack" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+            <div class="b-text">
+              <h3>Smart Breathing Exercises</h3>
+              <p>Multiple breathing techniques with intelligent timers that adapt to your stress levels and preferences.</p>
+            </div>
+          </article>
+
+          <article class="b b-move" data-reveal data-tilt="7" style="--d:0">
+            <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="b-text">
+              <h3>Physical Wellness</h3>
+              <p>Yoga flows, stretches, and movement exercises specifically designed to improve mental health.</p>
+            </div>
+          </article>
+
+          <article class="b b-mood" data-reveal data-tilt="7" style="--d:1">
+            <div class="face-row" id="landing-faces" aria-hidden="true"></div>
+            <div class="b-text">
+              <h3>Advanced Mood Analytics</h3>
+              <p>Track and analyze your emotional patterns with intelligent insights and trend predictions.</p>
+            </div>
+          </article>
+
+          <article class="b b-chat" data-reveal data-tilt="7" style="--d:2">
+            <div class="bubbles" aria-hidden="true">
+              <p class="you">Can't switch my brain off tonight…</p>
+              <p class="ai">That sounds exhausting. Want to try a slow 4-7-8 breath together?</p>
+              <p class="you">yes please</p>
+            </div>
+            <div class="b-text">
+              <h3>24/7 AI Support</h3>
+              <p>Intelligent chatbot counselor providing immediate support, guidance, and personalized recommendations.</p>
+            </div>
+          </article>
+
+          <article class="b b-pro" data-reveal data-tilt="5">
+            <div class="b-text">
+              <span class="tag clay"><i data-lucide="badge-check"></i>Licensed &amp; listed</span>
+              <h3>Professional Network</h3>
+              <p>Verified directory of licensed therapists and mental health professionals with real contact information.</p>
+              <a href="therapist-directory.html" class="link-arrow">Browse therapists <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="avatars" aria-hidden="true"><i style="--c:#86a38c">SJ</i><i style="--c:#cf6f45">MC</i><i style="--c:#e6b462">ER</i><i style="--c:#9fbfc4">JW</i><i style="--c:#d98b9a">LT</i></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW ================= -->
+    <section class="section how" id="how">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="eyebrow">How it works</span>
+          <h2 class="display">Three small habits. <em>One steadier you.</em></h2>
+        </div>
+        <ol class="steps">
+          <li data-reveal data-tilt="6"><span class="num">01</span><h3>Check in</h3><p>Pick a face, add what's behind it. Ten seconds, no judgement. MindCare quietly learns your rhythm.</p></li>
+          <li data-reveal data-tilt="6" style="--d:1"><span class="num">02</span><h3>Try something small</h3><p>Get a breathing, movement, mindfulness or reframing exercise matched to how you're actually feeling today.</p></li>
+          <li data-reveal data-tilt="6" style="--d:2"><span class="num">03</span><h3>See what helps</h3><p>Watch your patterns surface — triggers, best times of day, what lifts you — and bring a real person in when it's time.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section about" id="about">
+      <div class="about-in">
+        <div class="wrap">
+          <div class="about-grid">
+            <div data-reveal>
+              <span class="eyebrow light">Why choose MindCare?</span>
+              <h2 class="display">Mental health is just as important as <em>physical health.</em></h2>
+              <p class="lead">Our AI-powered platform combines evidence-based therapeutic techniques with cutting-edge technology to provide personalized, accessible mental health support whenever you need it.</p>
+            </div>
+            <div class="stats">
+              <div class="stat" data-reveal><b><span data-count="15000" data-suffix="+">0</span></b><small>Lives Improved</small></div>
+              <div class="stat" data-reveal style="--d:1"><b><span data-count="500" data-suffix="+">0</span></b><small>Exercises &amp; Resources</small></div>
+              <div class="stat" data-reveal style="--d:2"><b>24/7</b><small>AI-Powered Support</small></div>
+              <div class="stat" data-reveal style="--d:3"><b><span data-count="95" data-suffix="%">0</span></b><small>User Satisfaction</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="section cta">
+      <div class="wrap cta-in" data-reveal="scale">
+        <h2 class="display">Take one slow breath <em>with us.</em></h2>
+        <p class="lead">It takes about a minute, and you don't need an account.</p>
+        <div class="hero-cta" style="justify-content:center">
+          <a href="exercises.html?type=breathing" class="btn btn-clay" data-magnetic>Start breathing <i data-lucide="wind"></i></a>
+          <a href="dashboard.html" class="btn btn-ghost" data-magnetic>Open dashboard</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap foot-in">
+      <div class="foot-brand"><span id="foot-logo"></span><b>MindCare</b></div>
+      <p>&copy; <span id="yr">2026</span> MindCare. Empowering mental wellness through technology.</p>
+      <p class="foot-help"><i data-lucide="life-buoy"></i> In crisis? Call or text <a href="tel:988">988</a> (US) · <a href="tel:14416">14416</a> (India) · <a href="tel:911">911</a> for emergencies.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

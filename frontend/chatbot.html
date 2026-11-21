@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Support — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body class="chat-page">
+<div class="app">
+  <aside class="rail" id="rail" data-active="chat"></aside>
+  <main class="main chat-main">
+    <section class="chat-shell">
+      <header class="chat-head">
+        <div class="ai-orb" aria-hidden="true"><i></i></div>
+        <div class="grow">
+          <h1>MindCare AI Assistant</h1>
+          <span class="status"><i></i>Always here to help</span>
+        </div>
+        <button class="icon-btn" id="clear-btn" aria-label="Clear chat" title="Clear chat"><i data-lucide="trash-2"></i></button>
+        <button class="icon-btn" id="settings-btn" aria-label="Chat settings" title="Settings"><i data-lucide="settings-2"></i></button>
+      </header>
+
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+
+      <div class="typing" id="typing-indicator" style="display:none"><div class="av"><i data-lucide="sparkles"></i></div><div class="dots"><span></span><span></span><span></span></div></div>
+
+      <form class="chat-form" id="chat-form" autocomplete="off">
+        <div class="suggest" id="input-suggestions"></div>
+        <div class="input-pill">
+          <button type="button" class="icon-btn" id="attach-btn" aria-label="Attach"><i data-lucide="paperclip"></i></button>
+          <input type="text" id="message-input" placeholder="Type your message here…" maxlength="1000" aria-label="Message">
+          <button type="submit" class="send" id="send-btn" aria-label="Send"><i data-lucide="arrow-up"></i></button>
+        </div>
+        <p class="fine">MindCare AI offers support and coping ideas — it isn't a therapist or an emergency service.</p>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- settings -->
+<div class="backdrop" id="settings-panel">
+  <div class="modal">
+    <div class="modal-top"><h3>Chat settings</h3><button class="icon-btn" data-close aria-label="Close"><i data-lucide="x"></i></button></div>
+    <div class="stack" style="gap:22px">
+      <label class="stack" style="gap:8px"><b>Response speed</b>
+        <select class="field" id="response-speed"><option value="fast">Fast (immediate)</option><option value="normal">Normal (1–2 seconds)</option><option value="slow">Thoughtful (3–4 seconds)</option></select></label>
+      <label class="stack" style="gap:8px"><b>Chat theme</b>
+        <select class="field" id="chat-theme"><option value="light">Light</option><option value="dark">Dark</option><option value="auto">Auto</option></select></label>
+      <label class="row between"><span><b>Crisis detection</b><br><small class="muted">Show support options if a message contains crisis keywords</small></span>
+        <span class="switch"><input type="checkbox" id="crisis-detection"><i></i></span></label>
+    </div>
+    <div class="row" style="justify-content:flex-end;margin-top:26px"><button class="btn" data-close>Done</button></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

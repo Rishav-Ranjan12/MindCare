@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail" id="rail" data-active="dashboard"></aside>
+
+  <main class="main">
+    <header class="page-head hello">
+      <span class="eyebrow" id="today-label">Today</span>
+      <h1 class="display"><span id="greet">Welcome back</span>, <em><span id="username" contenteditable="true" spellcheck="false" title="Click to edit your name">Friend</span></em>.</h1>
+      <div class="today-faces">
+        <span>How are you feeling today?</span>
+        <div class="face-quick" id="face-quick"></div>
+      </div>
+    </header>
+
+    <!-- AI insight -->
+    <section class="insight" data-reveal>
+      <div class="orb" aria-hidden="true"></div>
+      <div>
+        <h4>Today's AI insight</h4>
+        <p id="insight-text">Reading your wellness patterns…</p>
+      </div>
+      <a class="btn btn-sm" id="insight-action" href="exercises.html" style="display:none" data-magnetic>Take action <i data-lucide="arrow-right" class="arrow"></i></a>
+    </section>
+
+    <!-- Quick actions -->
+    <section class="actions" id="actions">
+      <a class="action" data-reveal data-tilt="9" href="exercises.html?type=breathing" style="--c:#5a8f78">
+        <div class="blob"><i data-lucide="wind"></i></div>
+        <h3>Smart Breathing</h3>
+        <p>AI-personalized breathing exercises based on your current state.</p>
+        <span class="tag reco" id="reco-breathing"><i data-lucide="sparkles"></i>Recommended for you</span>
+        <span class="go">Start breathing <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a class="action" data-reveal data-tilt="9" style="--c:#cf6f45;--d:1" href="exercises.html?type=physical">
+        <div class="blob"><i data-lucide="person-standing"></i></div>
+        <h3>Movement &amp; Yoga</h3>
+        <p>Physical exercises designed to boost mental wellness.</p>
+        <span class="tag reco" id="reco-physical"><i data-lucide="sparkles"></i>Perfect for stress relief</span>
+        <span class="go">Start moving <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a class="action" data-reveal data-tilt="9" style="--c:#7a9fb0;--d:2" href="exercises.html?type=mindfulness">
+        <div class="blob"><i data-lucide="leaf"></i></div>
+        <h3>Mindfulness</h3>
+        <p>Guided meditation and mindfulness practices.</p>
+        <span class="tag reco" id="reco-mindfulness"><i data-lucide="sparkles"></i>Great for mental clarity</span>
+        <span class="go">Be present <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a class="action" data-reveal data-tilt="9" style="--c:#d9a441;--d:3" href="mood-tracker.html">
+        <div class="blob"><i data-lucide="activity"></i></div>
+        <h3>Mood Check-In</h3>
+        <p>Track your emotional state with advanced analytics.</p>
+        <span class="go">Log mood <i data-lucide="arrow-right"></i></span>
+      </a>
+    </section>
+
+    <section class="bento">
+      <!-- progress -->
+      <div class="card s5" data-reveal>
+        <div class="card-h"><h3>This week's progress</h3><span class="tag">Last 7 days</span></div>
+        <div class="stat-row">
+          <div class="stat-big"><b id="sessions-count">0</b><span>Sessions</span></div>
+          <div class="stat-big"><b id="minutes-spent">0</b><span>Minutes</span></div>
+          <div class="stat-big"><b id="streak-days">0</b><span>Day streak</span></div>
+        </div>
+        <div class="weekdots" id="weekdots"></div>
+      </div>
+
+      <!-- mood chart -->
+      <div class="card s7" data-reveal style="--d:1">
+        <div class="card-h"><h3>Mood trends</h3><a class="tag" href="mood-tracker.html">Full analytics →</a></div>
+        <div class="chart-box"><canvas id="mood-chart" aria-label="Mood over the last 14 days"></canvas></div>
+      </div>
+
+      <!-- ML -->
+      <div class="card s5" data-reveal>
+        <div class="card-h"><h3>ML insights</h3><span class="tag clay"><i data-lucide="brain"></i>On-device</span></div>
+        <div class="ml-list">
+          <div class="ml-item" style="--c:#cf6f45"><div class="ico"><i data-lucide="trending-up"></i></div><div><small>Mood prediction</small><b id="predicted-mood">Learning patterns…</b></div></div>
+          <div class="ml-item" style="--c:#86a38c"><div class="ico"><i data-lucide="clock"></i></div><div><small>Optimal exercise time</small><b id="optimal-time">Analyzing schedule…</b></div></div>
+          <div class="ml-item" style="--c:#e6b462"><div class="ico"><i data-lucide="target"></i></div><div style="width:100%"><small>Success rate</small><b id="success-pattern">Calculating…</b><div class="meter"><i id="success-meter"></i></div></div></div>
+        </div>
+      </div>
+
+      <!-- recs -->
+      <div class="card s7" data-reveal style="--d:1">
+        <div class="card-h"><h3>Smart recommendations</h3><span class="tag sun"><i data-lucide="lightbulb"></i>For right now</span></div>
+        <div class="recs" id="smart-recommendations">
+          <div class="skeleton" style="height:76px"></div><div class="skeleton" style="height:76px"></div><div class="skeleton" style="height:76px"></div>
+        </div>
+      </div>
+
+      <!-- recent -->
+      <div class="card s12" data-reveal>
+        <div class="card-h"><h3>Recent activities</h3><span class="tag" id="activity-count"></span></div>
+        <div class="timeline" id="activities-list"></div>
+        <p class="sample-note" id="sample-note" style="display:none"><span class="soon-note"><i data-lucide="info"></i>You're seeing example data. Log a mood or finish an exercise and it will be replaced with yours.</span></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/exdata.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail" id="rail" data-active="resources"></aside>
+  <main class="main">
+    <header class="page-head">
+      <span class="eyebrow">Library</span>
+      <h1 class="display">Mental health <em>resources.</em></h1>
+      <p class="lead">Educational content, tools, and support for your wellness journey.</p>
+    </header>
+
+    <section class="quick4">
+      <div class="q-card emergency" data-reveal data-tilt="8">
+        <div class="ic" style="background:rgba(207,111,69,.3)"><i data-lucide="triangle-alert"></i></div>
+        <h3>Crisis support</h3><p>Immediate help available 24/7.</p>
+        <div class="btns"><a href="tel:988" class="btn btn-sm">Call 988</a><a href="tel:911" class="btn btn-sm">Call 911</a><button class="btn btn-sm" data-crisis>More</button></div>
+      </div>
+      <div class="q-card" data-reveal data-tilt="8" style="--c:#9fbfc4;--d:1"><div class="ic"><i data-lucide="video"></i></div><h3>Video library</h3><p>Guided sessions and educational content.</p><button class="btn btn-sm btn-ghost" onclick="openModal('video-modal')">Browse videos</button></div>
+      <div class="q-card" data-reveal data-tilt="8" style="--c:#86a38c;--d:2"><div class="ic"><i data-lucide="headphones"></i></div><h3>Audio meditations</h3><p>Guided meditations and relaxation sounds.</p><button class="btn btn-sm btn-ghost" onclick="openModal('audio-modal')">Listen now</button></div>
+      <div class="q-card" data-reveal data-tilt="8" style="--c:#e6b462;--d:3"><div class="ic"><i data-lucide="download"></i></div><h3>Worksheets</h3><p>Printable tools and exercises.</p><button class="btn btn-sm btn-ghost" onclick="openModal('sheet-modal')">Download</button></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-h" data-reveal><h2>Educational <em>articles</em></h2><p>Evidence-based information on mental health topics.</p></div>
+      <div class="articles" id="articles"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-h" data-reveal><h2>Self-help <em>tools</em></h2><p>Interactive tools and assessments for personal growth.</p></div>
+      <div class="tools" id="tools"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-h" data-reveal><h2>Professional <em>support</em></h2><p>When and how to seek professional mental health support.</p></div>
+      <div class="split">
+        <div class="card" data-reveal>
+          <div class="card-h"><h3>When to seek professional help</h3></div>
+          <div class="sign"><i data-lucide="circle-alert"></i><div><b>Persistent symptoms</b><span>When symptoms interfere with daily life for more than two weeks.</span></div></div>
+          <div class="sign"><i data-lucide="triangle-alert"></i><div><b>Thoughts of self-harm</b><span>Any thoughts of hurting yourself or others require immediate attention.</span></div></div>
+          <div class="sign"><i data-lucide="users"></i><div><b>Relationship problems</b><span>Significant issues with family, friends, or work relationships.</span></div></div>
+          <div class="sign"><i data-lucide="ban"></i><div><b>Substance use</b><span>Using alcohol or drugs to cope with emotional problems.</span></div></div>
+        </div>
+        <div class="card" data-reveal style="--d:1">
+          <div class="card-h"><h3>Types of professionals</h3></div>
+          <div class="pro"><b>Psychologists</b><span>Provide therapy and psychological testing. Hold doctoral degrees (PhD, PsyD).</span></div>
+          <div class="pro"><b>Psychiatrists</b><span>Medical doctors who can prescribe medication and provide therapy.</span></div>
+          <div class="pro"><b>Licensed counselors</b><span>Provide therapy and counseling services. Hold master's degrees (LMFT, LCSW, LPC).</span></div>
+          <div class="pro"><b>Social workers</b><span>Provide therapy and connect clients with community resources (LCSW).</span></div>
+        </div>
+      </div>
+      <div class="help-actions">
+        <a href="therapist-directory.html" class="btn btn-clay"><i data-lucide="search"></i>Find a therapist</a>
+        <button class="btn btn-danger" data-crisis><i data-lucide="phone"></i>Crisis hotline</button>
+        <a href="chatbot.html" class="btn btn-ghost"><i data-lucide="messages-square"></i>AI support chat</a>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-h" data-reveal><h2>Community &amp; <em>support groups</em></h2><p>Connect with others on similar mental health journeys.</p></div>
+      <div class="community">
+        <div class="card comm" data-reveal><h4><i data-lucide="messages-square"></i>Online support groups</h4><p>Join moderated online communities for peer support and shared experiences.</p>
+          <div class="links"><a href="#" data-soon>Anxiety Support Group<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>Depression Support Circle<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>PTSD Recovery Community<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>General Mental Health Forum<i data-lucide="arrow-up-right"></i></a></div></div>
+        <div class="card comm" data-reveal style="--d:1"><h4><i data-lucide="calendar-days"></i>Local meetups</h4><p>Find in-person support groups and mental health events in your area.</p>
+          <div class="links"><a href="#" data-soon>Weekly Mindfulness Group<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>Mental Health First Aid Classes<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>Wellness Workshops<i data-lucide="arrow-up-right"></i></a><a href="#" data-soon>Peer Support Meetings<i data-lucide="arrow-up-right"></i></a></div></div>
+        <div class="card comm" data-reveal style="--d:2"><h4><i data-lucide="phone-call"></i>Helplines &amp; text support</h4><p>24/7 phone and text support from trained counselors and volunteers.</p>
+          <div class="helplines">
+            <div><span>Crisis Text Line</span><a href="sms:741741">Text HOME to 741741</a></div>
+            <div><span>988 Suicide &amp; Crisis Lifeline</span><a href="tel:988">Call 988</a></div>
+            <div><span>SAMHSA National Helpline</span><a href="tel:18006624357">1-800-662-HELP</a></div>
+            <div><span>Crisis Text Line (Spanish)</span><a href="sms:741741">Text HOLA to 741741</a></div>
+            <div><span>Tele-MANAS (India)</span><a href="tel:14416">Call 14416</a></div>
+          </div></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-h" data-reveal><h2>Mental health <em>apps</em></h2><p>Recommended mobile apps for mental wellness support.</p></div>
+      <div class="apps" id="apps"></div>
+    </section>
+  </main>
+</div>
+
+<!-- shared modal host -->
+<div class="backdrop" id="res-modal"><div class="modal wide" id="res-body"></div></div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/resources.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises — MindCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/exercises.css">
+</head>
+<body>
+<div class="app" id="app-shell">
+  <aside class="rail" id="rail" data-active="exercises"></aside>
+
+  <main class="main">
+    <!-- selection -->
+    <div id="exercises-selection">
+      <header class="page-head">
+        <span class="eyebrow">Mental wellness exercises</span>
+        <h1 class="display">Choose your <em>exercise.</em></h1>
+        <p class="lead">AI-recommended exercises based on your current mood and preferences.</p>
+      </header>
+      <div class="row wrap" id="filters" role="tablist" aria-label="Exercise type" style="margin-bottom:26px">
+        <button class="chip on" data-type="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-type="breathing" role="tab"><i data-lucide="wind"></i>Breathing</button>
+        <button class="chip" data-type="physical" role="tab"><i data-lucide="person-standing"></i>Physical</button>
+        <button class="chip" data-type="mindfulness" role="tab"><i data-lucide="leaf"></i>Mindfulness</button>
+        <button class="chip" data-type="cognitive" role="tab"><i data-lucide="notebook-pen"></i>Cognitive</button>
+      </div>
+      <div class="ex-grid" id="exercises-grid"></div>
+    </div>
+  </main>
+</div>
+
+<!-- immersive session -->
+<section class="session" id="exercise-session" aria-hidden="true">
+  <canvas id="session-bg" aria-hidden="true"></canvas>
+  <header class="s-head">
+    <div><span class="eyebrow" id="exercise-type"></span><h2 class="display" id="exercise-name">Session</h2></div>
+    <div class="row"><span class="tag" id="exercise-difficulty"></span><button class="icon-btn" onclick="endExerciseSession()" aria-label="End session"><i data-lucide="x"></i></button></div>
+  </header>
+
+  <div class="s-stage" id="exercise-visual">
+    <div class="v-breath" id="breathing-visual">
+      <div class="orb3d" id="breathing-circle"><i class="r r1"></i><i class="r r2"></i><i class="r r3"></i><div class="core"></div><div class="breath-text" id="breath-text">Get ready</div></div>
+      <div class="count" id="breath-count"></div>
+    </div>
+    <div class="v-pose" id="physical-visual">
+      <div class="pose-ico" id="pose-icon"></div>
+      <h3 class="pose-name" id="pose-name">Starting position</h3>
+      <p class="pose-inst" id="pose-instruction">Follow the guided movements</p>
+    </div>
+    <div class="v-mind" id="mindfulness-visual">
+      <div class="m-circle"><i></i><i></i><i></i><div class="m-text" id="mindfulness-text">Begin when ready</div></div>
+    </div>
+    <div class="v-cog" id="cognitive-visual">
+      <div class="bubble">
+        <div class="cognitive-instruction" id="cognitive-instruction">Let's work through this together</div>
+        <textarea class="field" id="cognitive-input" placeholder="Write your thoughts here… (stays on this device)"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <footer class="s-ctrl">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="s-row">
+      <div class="timer-display"><span id="current-time">0:00</span><span class="sep">/</span><span id="total-time">5:00</span></div>
+      <div class="control-buttons">
+        <button class="ctl" onclick="resetExercise()" aria-label="Restart"><i data-lucide="rotate-ccw"></i></button>
+        <button class="ctl big" id="play-pause-btn" onclick="toggleExercise()" aria-label="Play or pause"><i data-lucide="play"></i></button>
+        <button class="ctl" onclick="skipStep()" aria-label="Next step"><i data-lucide="skip-forward"></i></button>
+      </div>
+      <button class="mute" id="sound-btn" aria-label="Toggle sound"><i data-lucide="volume-2"></i></button>
+    </div>
+    <p class="exercise-guidance" id="exercise-guidance">Instructions will appear here</p>
+  </footer>
+</section>
+
+<!-- completion -->
+<div class="backdrop" id="completion-modal" data-sticky="1">
+  <div class="modal" style="text-align:center">
+    <div class="done-ico"><i data-lucide="check"></i></div>
+    <h3 style="margin-top:18px">Excellent work.</h3>
+    <p class="muted" style="margin-top:6px">You've completed your exercise. How do you feel now?</p>
+    <div class="mood-after" id="mood-after">
+      <button class="mood-btn" data-mood="much-better"><div data-face="5"></div>Much better</button>
+      <button class="mood-btn" data-mood="better"><div data-face="4"></div>Better</button>
+      <button class="mood-btn" data-mood="same"><div data-face="3"></div>About the same</button>
+      <button class="mood-btn" data-mood="worse"><div data-face="2"></div>Still struggling</button>
+    </div>
+    <p id="struggle-note" class="muted" style="display:none;font-size:14px;margin-bottom:12px">That's okay — some days are harder. <a href="chatbot.html" style="text-decoration:underline">Talk it through with the AI</a> or <button data-crisis style="text-decoration:underline;font-weight:700">see support options</button>.</p>
+    <p style="font-weight:700;margin-top:6px">Rate this exercise (1–10)</p>
+    <div class="rating-buttons" id="rating-buttons"></div>
+    <div class="row" style="justify-content:center;margin-top:24px;gap:12px">
+      <button class="btn btn-ghost" onclick="closeCompletionModal()">Close</button>
+      <button class="btn btn-clay" onclick="suggestNextExercise()">Suggest next <i data-lucide="arrow-right" class="arrow"></i></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/exdata.js"></script>
+<script src="js/exercises.js"></script>
+</body>
+</html>
